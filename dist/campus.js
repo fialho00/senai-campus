@@ -2,6 +2,9 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const $$ = selector => [...document.querySelectorAll(selector)];
+  let hasGemini = false;
+  let sendingToGemini = false;
+  const aiHistory = [];
   const fmt = n => String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
   const safeRead = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } };
   const safeWrite = (key, val) => { try { localStorage.setItem(key, JSON.stringify(val)); } catch { /* private browsers can deny storage */ } };
@@ -92,7 +95,7 @@
   function recommendation() {
     const active=currentSession(),next=nextSession();
     const gap=active?0:next?Math.max(0,next.start-state.minute):Math.max(0,1020-state.minute);
-    if(active) return {title:'Sua atividade está acontecendo agora.',desc:`Você está em ${active.title}. Depois, a NEXO encontra a próxima oportunidade compatível com sua rotina.`,free:'Em aula',next:next?fmt(next.start):'—',where:active.place,action:'agenda',target:active.building,button:'Ver minha agenda'};
+    if(active) return {title:'Sua atividade está acontecendo agora.',desc:`Você está em ${active.title}. Depois, o Senai Campus encontra a próxima oportunidade compatível com sua rotina.`,free:'Em aula',next:next?fmt(next.start):'—',where:active.place,action:'agenda',target:active.building,button:'Ver minha agenda'};
     const event=OPPORTUNITIES.filter(o=>o.type==='evento' && relevant(o) && o.start>=state.minute && o.end<=state.minute+gap && matches(o)).sort((a,b)=>a.start-b.start)[0];
     if(event && gap>=20) return {title:event.id==='oficina-ia'?`Você tem ${gap} minutos livres. Que tal uma oficina de IA?`:`Você tem ${gap} minutos livres. Uma atividade combina com você.`,desc:`${event.title} começa às ${fmt(event.start)} na ${event.place}. Cabe antes da sua próxima aula e combina com seus interesses.`,free:gap+' min',next:next?fmt(next.start):'—',where:event.place,action:'mapa',target:event.building,button:'Encontrar no mapa'};
     if(next && gap<=20) return {title:`Sua próxima atividade começa em ${gap} minutos.`,desc:`${next.title} acontece em ${next.place}. É um bom momento para se orientar e chegar com tranquilidade.`,free:gap+' min',next:fmt(next.start),where:next.place,action:'mapa',target:next.building,button:'Como chegar'};
@@ -127,7 +130,7 @@
   }
   function renderAll(){renderAgenda();renderHomeOpportunities();renderRadar();renderOpportunities();renderAnnouncements();}
   function changeTime(minutes){state.minute=Math.min(1020,Math.max(480,Math.round(minutes/10)*10));renderAll();}
-  function sendMessage(text) {
+  function sendDemoMessage(text) {
     const value=String(text||'').trim().slice(0,250);if(!value)return;
     appendChat(value,'user');const q=value.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
     let title,body,action,label;
@@ -140,13 +143,70 @@
     else {title='Posso conectar sua rotina às oportunidades.';body='Pergunte sobre tempo livre, próxima aula, vagas, comunicados ou localização. Uso apenas os dados simulados desta demonstração.';action='radar';label='Conhecer o Radar';}
     appendChat({title,body,action,label},'assistant');
   }
+  async function sendMessage(text) {
+    const value = String(text || '').trim().slice(0, 500);
+    if (!value || sendingToGemini) return;
+    if (!hasGemini) { sendDemoMessage(value); return; }
+    sendingToGemini = true;
+    $('chatForm').querySelector('button').disabled = true;
+    appendChat(value, 'user');
+    const waiting = document.createElement('div');
+    waiting.className = 'chat-bubble assistant';
+    waiting.textContent = 'A SenAI está pensando…';
+    $('chatMessages').append(waiting);
+    try {
+      const context = { course: { ds: 'Desenvolvimento de Sistemas', eletrica: 'Eletrotécnica', design: 'Design Digital' }[state.course], time: fmt(state.minute), interests: [...state.interests] };
+      const response = await fetch('/api/chat', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ message: value, context, history: aiHistory.slice(-6) }), signal: AbortSignal.timeout(25000) });
+      const result = await response.json();
+      if (!response.ok || !result.answer) throw new Error(result.error || 'O assistente não respondeu.');
+      waiting.remove();
+      appendChat({ title: 'SenAI · Gemini ✦', body: result.answer }, 'assistant');
+      aiHistory.push({ role: 'user', text: value }, { role: 'model', text: result.answer.slice(0, 500) });
+      $('aiStatus').textContent = 'GEMINI ATIVO';
+    } catch (error) {
+      waiting.remove();
+      appendChat({ title: 'Conexão indisponível', body: error.message || 'Não foi possível acessar o Gemini. Tente novamente.' }, 'assistant');
+      $('aiStatus').textContent = 'FALHA DE CONEXÃO';
+    } finally {
+      sendingToGemini = false;
+      $('chatForm').querySelector('button').disabled = false;
+      $('chatInput').focus();
+    }
+  }
+  async function initializeServices() {
+    try {
+      const response = await fetch('/api/status', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Serviço indisponível');
+      const status = await response.json();
+      hasGemini = Boolean(status.gemini);
+      $('aiStatus').textContent = hasGemini ? 'GEMINI CONFIGURADO' : 'MODO DEMO';
+      $('aiStatus').dataset.active = String(hasGemini);
+      $('chatModeDescription').textContent = hasGemini ? 'Gemini conectado ao servidor · dados do campus ilustrativos' : 'Respostas demonstrativas · Gemini aguardando chave no servidor';
+    } catch {
+      $('aiStatus').textContent = 'MODO DEMO';
+      $('aiStatus').dataset.active = 'false';
+      $('chatModeDescription').textContent = 'Respostas demonstrativas (sem conexão com a API)';
+    }
+    try {
+      const response = await fetch('/api/me', { cache: 'no-store' });
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data.authenticated && data.student?.name) {
+        const first = data.student.name.split(' ')[0].slice(0, 30);
+        $('studentName').textContent = first;
+        $('profileButton').textContent = data.student.name.split(' ').slice(0, 2).map(n => n[0]?.toUpperCase()).join('');
+        $('accessEntry').textContent = 'Minha conta ✓';
+        $('accessEntry').title = `Domínio institucional: ${data.student.hd}`;
+      }
+    } catch { /* demo pública independente do login */ }
+  }
   function appendChat(content,role){
     const el=document.createElement('div');el.className='chat-bubble '+role;
     if(role==='user'){el.textContent=content;}else{const heading=document.createElement('strong');heading.textContent=content.title;const p=document.createElement('div');p.textContent=content.body;el.append(heading,p);if(content.action){const btn=document.createElement('button');btn.type='button';btn.className='chat-action';btn.textContent=content.label+' ↗';btn.addEventListener('click',()=>{if(content.action==='mapa')selectBuilding((nextSession()||currentSession())?.building||'blocob');setView(content.action);});el.append(btn);}}
     $('chatMessages').append(el);$('chatMessages').scrollTop=$('chatMessages').scrollHeight;
   }
   const tourSteps=[
-    {view:'inicio',title:'Tudo começa no seu dia.',text:'A NEXO coloca próximo compromisso e a recomendação mais útil já na tela inicial.'},
+    {view:'inicio',title:'Tudo começa no seu dia.',text:'O Senai Campus coloca próximo compromisso e a recomendação mais útil já na tela inicial.'},
     {view:'radar',title:'Aqui está o diferencial.',text:'O Radar cruza horário, curso e interesses para sugerir uma ação que cabe na agenda. Mude os sinais e veja a resposta.'},
     {view:'oportunidades',title:'O futuro aparece no caminho.',text:'Estágios e eventos são filtráveis e podem ser salvos, sempre identificados como exemplos.'},
     {view:'mapa',title:'Da informação ao lugar.',text:'Um toque leva ao mapa esquemático, fechando o ciclo entre recomendação e ação.'},
@@ -182,7 +242,8 @@
   $('nextTour').addEventListener('click',()=>{state.tourStep++;if(state.tourStep>=tourSteps.length){closeTour();setView('radar');}else showTourStep();});
   $('tourOverlay').addEventListener('click',e=>{if(e.target===$('tourOverlay'))closeTour();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTour();$('notificationPopover').hidden=true;}});
-  renderAll();selectBuilding('blocob');appendChat({title:'Oi, Gabriel! Eu sou a NEXO. ✳',body:'Estou pronta para conectar sua agenda a oportunidades. Quer descobrir o que fazer com seu tempo livre ou encontrar sua próxima aula?',action:'radar',label:'Descobrir meu próximo passo'},'assistant');
+  renderAll();selectBuilding('blocob');appendChat({title:'Oi, Gabriel! Eu sou a SenAI. ✳',body:'Sou a assistente experimental do Senai Campus. Posso conectar sua agenda ilustrativa às oportunidades da demonstração e conversar sobre estudos. Quer descobrir o que fazer com seu tempo livre?',action:'radar',label:'Descobrir meu próximo passo'},'assistant');
+  initializeServices();
   const hash=location.hash.slice(1);if($$('.app-view').some(v=>v.dataset.view===hash))setView(hash);
   if(new URLSearchParams(location.search).get('tour')==='1'){state.tourStep=0;showTourStep();}
 })();

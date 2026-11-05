@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1A4B9F">
+  <meta name="description" content="Acesso institucional Google Workspace ao Senai Campus. Protótipo independente do desafio Smart Campus SENAI Taguatinga.">
+  <title>Conta SENAI | Senai Campus</title>
+  <link rel="icon" type="image/png" href="assets/senai-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="login.css">
+  <script src="theme.js"></script>
+  <script src="login.js" defer></script>
+</head>
+<body class="access-body">
+  <div class="institutional-ribbon">SENAI CAMPUS <b>✳</b> PROTÓTIPO ESTUDANTIL PARA O SENAI TAGUATINGA</div>
+  <header class="access-header"><a class="brand senai-brand" href="/" aria-label="Senai Campus, início"><img class="senai-mark" src="assets/senai-logo.png" alt="SENAI"><span class="senai-campus-label">Campus</span></a><button type="button" class="theme-toggle" data-theme-toggle>☾ Escuro</button></header>
+  <main class="access-main">
+    <div class="access-visual"><span class="access-kicker">UMA IDENTIDADE · SEU CAMPUS</span><h1>Sua jornada merece uma conexão <em>segura.</em></h1><p>Uma conta institucional para sua agenda, oportunidades, assistente SenAI e recursos personalizados.</p><div class="access-illustration" aria-hidden="true"><span class="ring ring-a"></span><span class="ring ring-b"></span><div class="access-center">✳<small>CAMPUS</small></div><span class="access-tag tag-a">SENAI</span><span class="access-tag tag-b">ESTUDANTE</span><span class="access-tag tag-c">GOOGLE</span></div></div>
+    <section class="access-card" aria-label="Login institucional"><span class="access-card-icon">✳</span><div class="access-card-kicker">ÁREA DO ESTUDANTE</div><h2>Entrar com a conta SENAI</h2><p>O acesso institucional será feito somente com uma conta Google Workspace autorizada pelo SENAI. Não haverá senha própria do Senai Campus.</p><a class="google-login" id="googleLogin" href="/auth/google" aria-disabled="true"><span class="google-g" aria-hidden="true">G</span> Continuar com Google SENAI</a><p class="login-state" id="loginState" role="status">Verificando a integração institucional...</p><div class="access-separator"><span>POR ENQUANTO</span></div><a class="demo-login" href="/campus.html?tour=1">Explorar demonstração pública ↗</a><div class="access-note"><strong>Transparência</strong><br>Esta plataforma é um projeto independente de estudantes. A autenticação real depende da configuração OAuth e da autorização institucional. A demonstração usa dados fictícios.</div><div id="signedArea" hidden><p id="signedGreeting"></p><form action="/auth/logout" method="post"><button type="submit">Sair da conta institucional</button></form></div></section>
+  </main>
+</body>
+</html>

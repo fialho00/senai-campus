@@ -1,0 +1,11 @@
+{
+  "name": "nexo-campus",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/preview.mjs",
+    "build": "node scripts/build-worker.mjs",
+    "test": "node scripts/build-worker.mjs && node --test tests/worker.test.mjs"
+  }
+}

@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f5fb">
-  <meta name="description" content="Demonstração do NEXO Campus: agenda, radar inteligente, oportunidades, mural, mapa e assistente em uma experiência integrada.">
-  <title>Meu Campus | NEXO Campus</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#1A4B9F">
+  <meta name="description" content="Demonstração do Senai Campus: agenda, radar inteligente, oportunidades, mural, mapa e assistente SenAI em uma experiência integrada.">
+  <title>Meu Campus | Senai Campus</title>
+  <link rel="icon" type="image/png" href="assets/senai-logo.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="campus.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="theme.js"></script>
   <script src="campus.js" defer></script>
 </head>
 <body class="app-body">
   <a class="skip-link" href="#appMain">Pular para o painel</a>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand side-brand" href="/" aria-label="NEXO Campus, landing page"><span class="brand-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>nexo<span class="brand-period">.</span><small>campus</small></span></a>
+      <a class="brand side-brand senai-brand" href="/" aria-label="Senai Campus, início"><img class="senai-mark" src="assets/senai-logo.png" alt="SENAI"><span class="senai-campus-label">Campus</span></a>
       <div class="sidebar-label">SEU ESPAÇO</div>
       <nav class="side-nav" aria-label="Áreas da plataforma">
         <button type="button" class="nav-item active" data-nav="inicio" aria-current="page"><span class="nav-symbol">◫</span><span>Visão geral</span></button>
@@ -24,10 +26,10 @@
         <button type="button" class="nav-item" data-nav="oportunidades"><span class="nav-symbol">↗</span><span>Oportunidades</span></button>
         <button type="button" class="nav-item" data-nav="mural"><span class="nav-symbol">◉</span><span>Comunicados</span></button>
         <button type="button" class="nav-item" data-nav="mapa"><span class="nav-symbol">◇</span><span>Mapa do campus</span></button>
-        <button type="button" class="nav-item" data-nav="assistente"><span class="nav-symbol">✦</span><span>Pergunte à NEXO</span></button>
+        <button type="button" class="nav-item" data-nav="assistente"><span class="nav-symbol">✦</span><span>Pergunte à SenAI</span></button>
       </nav>
       <div class="sidebar-bottom">
-        <div class="side-help"><span>✦</span><strong>Uma pergunta pode<br>mudar seu dia.</strong><p>Converse com a NEXO para descobrir seu próximo passo.</p><button type="button" data-open="assistente">Fazer pergunta ↗</button></div>
+        <div class="side-help"><span>✦</span><strong>Uma pergunta pode<br>mudar seu dia.</strong><p>Converse com a SenAI para descobrir seu próximo passo.</p><button type="button" data-open="assistente">Fazer pergunta ↗</button></div>
         <a href="/" class="back-link">← Sobre o projeto</a>
       </div>
     </aside>
@@ -35,6 +37,8 @@
       <header class="app-topbar">
         <div class="topbar-location"><span class="topbar-icon">✳</span><span>Smart Campus <strong>SENAI Taguatinga</strong></span><span class="demo-pill">DEMO</span></div>
         <div class="topbar-controls">
+          <button type="button" class="theme-toggle" data-theme-toggle>☾ Escuro</button>
+          <a class="access-entry" id="accessEntry" href="login.html">Conta SENAI ↗</a>
           <label class="course-picker">Curso <select id="courseSelect" aria-label="Escolha seu curso"><option value="ds">Desenvolvimento de Sistemas</option><option value="eletrica">Eletrotécnica</option><option value="design">Design Digital</option></select></label>
           <button class="icon-button notification-button" id="notificationButton" aria-label="Abrir notificações" aria-expanded="false" type="button">♧<span id="notificationCount">3</span></button>
           <button class="profile-avatar" id="profileButton" type="button" title="Perfil de demonstração">GF</button>
@@ -42,12 +46,12 @@
         <div class="notification-popover" id="notificationPopover" hidden><div class="notification-heading"><strong>Notificações</strong><button id="clearNotifications" type="button">Marcar como lidas</button></div><div id="notificationList"></div></div>
       </header>
       <main class="main-panel" id="appMain">
-        <div class="simulation-strip"><span>◉</span> <strong>Protótipo interativo:</strong> cursos, horários, vagas e salas são exemplos fictícios. Não representa os sistemas oficiais do SENAI. <button id="startTour" type="button">Ver tour guiado ↗</button></div>
+        <div class="simulation-strip"><span>◉</span> <strong>Protótipo independente:</strong> cursos, horários, vagas e salas são fictícios. Não representa os sistemas oficiais do SENAI. <button id="startTour" type="button">Ver tour guiado ↗</button></div>
         <section class="app-view is-visible" data-view="inicio">
           <div class="view-eyebrow">QUINTA-FEIRA, 05 DE NOVEMBRO DE 2026 <span>✳</span> SEU CAMPUS, DO SEU JEITO</div>
-          <div class="welcome-head"><div><h1>Bom dia, Gabriel <span>✳</span></h1><p>Seu dia tem oportunidades esperando. A NEXO já conectou os pontos.</p></div><div class="demo-clock"><small>HORÁRIO SIMULADO</small><strong id="clockMain">10:20</strong><div class="clock-actions"><button class="clock-prev" aria-label="Voltar horário">−</button><button class="clock-next" aria-label="Avançar horário">+</button></div></div></div>
+          <div class="welcome-head"><div><h1>Bom dia, <span id="studentName">Gabriel</span> <span>✳</span></h1><p>Seu dia tem oportunidades esperando. O Senai Campus já conectou os pontos.</p></div><div class="demo-clock"><small>HORÁRIO SIMULADO</small><strong id="clockMain">10:20</strong><div class="clock-actions"><button class="clock-prev" aria-label="Voltar horário">−</button><button class="clock-next" aria-label="Avançar horário">+</button></div></div></div>
           <div class="dashboard-top-grid">
-            <article class="dashboard-radar-card"><div class="dash-radar-kicker"><span class="small-pulse"></span> NEXO RADAR <span class="dash-radar-label">PRÓXIMO PASSO</span></div><div class="dash-radar-content"><span class="radar-glyph">✳</span><h2 id="homeRadarTitle">Você tem tempo para avançar.</h2><p id="homeRadarDesc">Estamos conectando sua agenda e oportunidades.</p><button type="button" class="btn btn-lime" data-open="radar">Explorar meu Radar <span aria-hidden="true">↗</span></button></div><div class="dashboard-radar-foot"><span id="homeRadarMeta">◷ Agenda + interesses</span><span>CONEXÕES QUE VIRAM AÇÃO</span></div></article>
+            <article class="dashboard-radar-card"><div class="dash-radar-kicker"><span class="small-pulse"></span> RADAR DO CAMPUS <span class="dash-radar-label">PRÓXIMO PASSO</span></div><div class="dash-radar-content"><span class="radar-glyph">✳</span><h2 id="homeRadarTitle">Você tem tempo para avançar.</h2><p id="homeRadarDesc">Estamos conectando sua agenda e oportunidades.</p><button type="button" class="btn btn-lime" data-open="radar">Explorar meu Radar <span aria-hidden="true">↗</span></button></div><div class="dashboard-radar-foot"><span id="homeRadarMeta">◷ Agenda + interesses</span><span>CONEXÕES QUE VIRAM AÇÃO</span></div></article>
             <article class="next-class-card"><div class="card-upper"><span>PRÓXIMA ATIVIDADE</span><span class="card-sticker">▦</span></div><div class="next-time" id="nextClassTime">11:00</div><h3 id="nextClassTitle">Orientação de Projeto</h3><p id="nextClassPlace">Bloco B · Lab 07</p><div class="card-bottom"><span id="nextClassCountdown">Em 40 minutos</span><button type="button" data-open="mapa">Como chegar ↗</button></div></article>
           </div>
           <div class="dashboard-bottom-grid">
@@ -60,7 +64,7 @@
           <div class="view-title-row"><div><h1>Seu Radar <span class="title-accent">✳</span></h1><p>Seu tempo tem valor. Descubra onde ele pode render mais.</p></div><span class="feature-indicator">EXPERIÊNCIA PRINCIPAL</span></div>
           <div class="radar-workspace">
             <div class="radar-settings surface-card"><span class="section-eyebrow">01 / SEU CONTEXTO</span><h2>O que importa para você?</h2><p>O Radar conecta sua rotina aos seus interesses. Experimente mudar os sinais.</p><fieldset class="interest-field"><legend>Áreas que me interessam</legend><div class="interest-options"><label><input type="checkbox" value="ia" checked><span>✳ IA e tecnologia</span></label><label><input type="checkbox" value="carreira" checked><span>↗ Estágios</span></label><label><input type="checkbox" value="projetos"><span>◈ Projetos</span></label><label><input type="checkbox" value="design"><span>◉ Design</span></label><label><input type="checkbox" value="robotica"><span>⚙ Robótica</span></label></div></fieldset><div class="time-control"><label for="timeSlider">Horário simulado <strong id="timeSliderLabel">10:20</strong></label><input type="range" id="timeSlider" min="480" max="1020" step="10" value="620"><div class="time-scale"><span>08:00</span><span>12:30</span><span>17:00</span></div></div><button type="button" class="btn btn-dark radar-recalc" id="recalculateRadar">Atualizar meu Radar <span>↗</span></button><p class="privacy-caption">◌ As preferências da demonstração ficam apenas neste navegador.</p></div>
-            <div class="radar-result"><div class="radar-result-top"><span><span class="small-pulse"></span> 02 / RECOMENDAÇÃO EM TEMPO REAL</span><span id="radarConfidence">CONTEXTUAL</span></div><div class="result-main"><div class="result-symbol">✳</div><p class="result-label">NEXO ENCONTROU UM PRÓXIMO PASSO</p><h2 id="radarTitle">Seu próximo passo</h2><p id="radarDescription">Calculando uma recomendação útil.</p><div class="radar-stat-row"><div><small>SEU TEMPO</small><strong id="radarFreeTime">—</strong></div><div><small>PRÓXIMA AULA</small><strong id="radarNext">—</strong></div><div><small>ONDE</small><strong id="radarLocation">—</strong></div></div><div class="radar-action-row"><button type="button" class="btn btn-lime" id="radarPrimary">Ver próximo passo ↗</button><button type="button" class="btn btn-outline-white" data-open="assistente">Perguntar à NEXO</button></div></div><div class="result-bottom"><span>AGENDA ↔ INTERESSES ↔ OPORTUNIDADES ↔ MAPA</span><span>✦</span></div></div>
+            <div class="radar-result"><div class="radar-result-top"><span><span class="small-pulse"></span> 02 / RECOMENDAÇÃO EM TEMPO REAL</span><span id="radarConfidence">CONTEXTUAL</span></div><div class="result-main"><div class="result-symbol">✳</div><p class="result-label">O RADAR ENCONTROU UM PRÓXIMO PASSO</p><h2 id="radarTitle">Seu próximo passo</h2><p id="radarDescription">Calculando uma recomendação útil.</p><div class="radar-stat-row"><div><small>SEU TEMPO</small><strong id="radarFreeTime">—</strong></div><div><small>PRÓXIMA AULA</small><strong id="radarNext">—</strong></div><div><small>ONDE</small><strong id="radarLocation">—</strong></div></div><div class="radar-action-row"><button type="button" class="btn btn-lime" id="radarPrimary">Ver próximo passo ↗</button><button type="button" class="btn btn-outline-white" data-open="assistente">Perguntar à SenAI</button></div></div><div class="result-bottom"><span>AGENDA ↔ INTERESSES ↔ OPORTUNIDADES ↔ MAPA</span><span>✦</span></div></div>
           </div>
           <div class="radar-explainer"><span>COMO FUNCIONA</span><div><strong>1. Entende a rotina</strong><p>Consulta os horários simulados.</p></div><div><strong>2. Encontra janelas</strong><p>Calcula os minutos disponíveis.</p></div><div><strong>3. Conecta oportunidades</strong><p>Prioriza interesses, prazos e próximos locais.</p></div></div>
         </section>
@@ -94,14 +98,15 @@
               </svg>
               <p class="map-disclaimer">Mapa conceitual para demonstração. Os blocos, salas e trajetos não representam a planta oficial do SENAI Taguatinga.</p>
             </div><aside class="surface-card map-details"><span class="section-eyebrow">DESTINO SELECIONADO</span><div class="map-detail-icon" id="mapDetailIcon">◇</div><h2 id="mapDetailTitle">Bloco B</h2><p id="mapDetailDesc">Ambiente de ensino. A rota é ilustrativa.</p><div class="map-route-steps"><div><span>01</span><strong>Entrada principal</strong></div><div><span>02</span><strong id="mapRouteDest">Bloco B</strong></div></div><button type="button" class="btn btn-dark" data-open="agenda">Ver próxima atividade ↗</button></aside></div>
+          <article class="official-plan"><div class="plan-top"><div><span class="section-eyebrow">REFERÊNCIA ARQUITETÔNICA REAL · SENAI/SC</span><h3>Planta publicada: CEUNI/SENAI Blumenau (SC)</h3><p>Exemplo real de como um mapa interno do SENAI pode ser integrado. Esta planta é de <strong>outra unidade</strong> e não deve orientar deslocamentos em Taguatinga. Fonte: Plano de Desenvolvimento Institucional do SENAI/SC, página 106.</p></div><a href="https://sc.senai.br/sites/default/files/publications/PDI_2020-2024_Sistema_e_MEC.pdf#page=106" target="_blank" rel="noopener noreferrer">Abrir documento original ↗</a></div><iframe title="Planta arquitetônica publicada pelo SENAI SC, unidade Blumenau" loading="lazy" src="https://sc.senai.br/sites/default/files/publications/PDI_2020-2024_Sistema_e_MEC.pdf#page=106"></iframe></article>
         </section>
         <section class="app-view" data-view="assistente">
-          <div class="view-eyebrow">SEU ASSISTENTE CONTEXTUAL</div><div class="view-title-row"><div><h1>Pergunte à NEXO <span class="title-accent">✦</span></h1><p>Uma conversa que entende sua rotina e aponta ações concretas.</p></div><span class="feature-indicator">ASSISTENTE DEMONSTRATIVO</span></div>
-          <div class="chat-layout"><div class="chat-card"><div class="chat-head"><span class="chat-avatar">✦</span><div><strong>NEXO Assistente</strong><small>Respostas baseadas nos dados simulados da plataforma</small></div><span class="chat-online"><i></i> Ativo</span></div><div id="chatMessages" class="chat-messages" aria-live="polite"></div><form id="chatForm" class="chat-form"><label class="sr-only" for="chatInput">Sua pergunta</label><input id="chatInput" type="text" autocomplete="off" placeholder="Pergunte sobre aulas, vagas, tempo livre..." maxlength="250"><button type="submit" aria-label="Enviar pergunta">↗</button></form></div><aside class="chat-examples surface-card"><span class="section-eyebrow">TENTE PERGUNTAR</span><h2>Comece por aqui.</h2><div class="prompt-list"><button class="quick-prompt" data-prompt="Tenho tempo livre. O que faço agora?">◷ Tenho tempo livre. O que faço agora? <span>↗</span></button><button class="quick-prompt" data-prompt="Quais vagas de estágio combinam comigo?">↗ Quais vagas combinam comigo? <span>↗</span></button><button class="quick-prompt" data-prompt="Onde fica minha próxima aula?">◇ Onde fica minha próxima aula? <span>↗</span></button><button class="quick-prompt" data-prompt="Quais comunicados são importantes?">◉ Quais comunicados são importantes? <span>↗</span></button></div><p class="chat-disclaimer">Nesta versão, o assistente usa regras transparentes sobre dados fictícios, sem conexão com IA externa ou sistemas oficiais.</p></aside></div>
+          <div class="view-eyebrow">SEU ASSISTENTE CONTEXTUAL · SenAI</div><div class="view-title-row"><div><h1>Pergunte à SenAI <span class="title-accent">✦</span></h1><p>Uma conversa que entende sua rotina e aponta ações concretas.</p></div><span class="feature-indicator">ASSISTENTE EXPERIMENTAL</span></div>
+          <div class="chat-layout"><div class="chat-card"><div class="chat-head"><span class="chat-avatar">✦</span><div><strong>SenAI · assistente do Senai Campus</strong><small id="chatModeDescription">Verificando conexão com o Gemini...</small></div><span class="ai-status" id="aiStatus" data-active="false">VERIFICANDO</span></div><div id="chatMessages" class="chat-messages" aria-live="polite"></div><form id="chatForm" class="chat-form"><label class="sr-only" for="chatInput">Sua pergunta</label><input id="chatInput" type="text" autocomplete="off" placeholder="Pergunte sobre aulas, vagas, tempo livre..." maxlength="500"><button type="submit" aria-label="Enviar pergunta">↗</button></form></div><aside class="chat-examples surface-card"><span class="section-eyebrow">TENTE PERGUNTAR</span><h2>Comece por aqui.</h2><div class="prompt-list"><button class="quick-prompt" data-prompt="Tenho tempo livre. O que faço agora?">◷ Tenho tempo livre. O que faço agora? <span>↗</span></button><button class="quick-prompt" data-prompt="Quais vagas de estágio combinam comigo?">↗ Quais vagas combinam comigo? <span>↗</span></button><button class="quick-prompt" data-prompt="Onde fica minha próxima aula?">◇ Onde fica minha próxima aula? <span>↗</span></button><button class="quick-prompt" data-prompt="Quais comunicados são importantes?">◉ Quais comunicados são importantes? <span>↗</span></button></div><p class="chat-disclaimer" id="chatDisclaimer">A SenAI é um protótipo independente e não representa a IA oficial Nai do SENAI. Informações acadêmicas nesta demonstração são fictícias.</p></aside></div>
         </section>
       </main>
     </div>
   </div>
-  <div class="tour-overlay" id="tourOverlay" hidden><div class="tour-card"><span class="tour-kicker">✳ TOUR GUIADO / <span id="tourStepLabel">1 DE 4</span></span><h2 id="tourTitle">Seu campus, com contexto.</h2><p id="tourText">Descubra como a NEXO conecta informações para ajudar o estudante a tomar decisões.</p><div class="tour-actions"><button id="endTour" type="button">Encerrar</button><button id="nextTour" type="button">Próximo passo ↗</button></div></div></div>
+  <div class="tour-overlay" id="tourOverlay" hidden><div class="tour-card"><span class="tour-kicker">✳ TOUR GUIADO / <span id="tourStepLabel">1 DE 4</span></span><h2 id="tourTitle">Seu campus, com contexto.</h2><p id="tourText">Descubra como o Senai Campus conecta informações para ajudar o estudante a tomar decisões.</p><div class="tour-actions"><button id="endTour" type="button">Encerrar</button><button id="nextTour" type="button">Próximo passo ↗</button></div></div></div>
 </body>
 </html>

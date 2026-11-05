@@ -15,3 +15,8 @@
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.btn{transition:none}}
 .brand-dots i{background:#1A4B9F}
 .brand-dots i:last-child{background:#EF5E31}
+.senai-brand{gap:10px;letter-spacing:0;white-space:nowrap;flex-shrink:0}
+.senai-brand .senai-mark{width:123px;height:auto;display:block;object-fit:contain;background:#fff;border-radius:5px;padding:3px 5px}
+.senai-brand .senai-campus-label{display:inline-block;font:800 15px/1.1 'DM Sans',sans-serif;color:#1A4B9F;letter-spacing:-.025em;text-transform:uppercase;border-left:2px solid #EF5E31;padding-left:10px}
+.phone-senai-mark{width:88px;height:auto;display:block;background:#fff;border-radius:4px;padding:2px}
+@media(max-width:650px){.senai-brand .senai-mark{width:99px}.senai-brand .senai-campus-label{font-size:12px;padding-left:7px}}

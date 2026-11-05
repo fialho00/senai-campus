@@ -1,0 +1,46 @@
+/* Tema escuro: preserva as cores institucionais azul e laranja, com superfícies legíveis. */
+.theme-toggle{border:1px solid #C5D8EF;background:#EDF4FC;color:#173C70;border-radius:30px;font-size:11px;font-weight:800;padding:9px 13px;white-space:nowrap}
+.theme-toggle:hover{border-color:#EF5E31}
+.landing-nav-actions{display:flex;align-items:center;gap:12px}
+.institutional-ribbon{background:#1A4B9F;color:#fff;text-align:center;font-size:10px;font-weight:800;letter-spacing:.11em;padding:7px 18px;border-bottom:3px solid #EF5E31}
+.institutional-ribbon b{color:#FFBF91}
+.site-nav{top:0}
+html[data-theme="dark"]{color-scheme:dark;--paper:#0C1628;--muted:#A8BED7;--line:#294561}
+html[data-theme="dark"] body{background:#0C1628;color:#ECF4FF}
+html[data-theme="dark"] .site-nav,html[data-theme="dark"] .sidebar,html[data-theme="dark"] .app-topbar,html[data-theme="dark"] .surface-card,html[data-theme="dark"] .notification-popover,html[data-theme="dark"] .demo-clock,html[data-theme="dark"] .chat-card,html[data-theme="dark"] .announcement,html[data-theme="dark"] .opportunity-card,html[data-theme="dark"] .empty-state{background:#14263F;border-color:#294561;color:#ECF4FF}
+html[data-theme="dark"] .brand,html[data-theme="dark"] .view-title-row h1,html[data-theme="dark"] .welcome-head h1,html[data-theme="dark"] .surface-card h2,html[data-theme="dark"] .announcement h3,html[data-theme="dark"] .opportunity-card h3,html[data-theme="dark"] .topbar-location strong{color:#F0F6FF}
+html[data-theme="dark"] .hero-left h1,html[data-theme="dark"] .problem-layout h2,html[data-theme="dark"] .solution-heading h2{color:#F0F6FF}
+html[data-theme="dark"] .landing-hero,html[data-theme="dark"] .problem-section,html[data-theme="dark"] .solution-section{background:#0C1628;color:#EDF4FF}
+html[data-theme="dark"] .problem-tiles>div,html[data-theme="dark"] .bento-white{background:#14263F;color:#EDF4FF;border-color:#294561}
+html[data-theme="dark"] .bento-white h3,html[data-theme="dark"] .problem-tiles strong{color:#EDF4FF}
+html[data-theme="dark"] .problem-layout p,html[data-theme="dark"] .solution-heading p,html[data-theme="dark"] .hero-left>p,html[data-theme="dark"] .problem-tiles p,html[data-theme="dark"] .view-title-row p,html[data-theme="dark"] .welcome-head p{color:#B9CADC}
+html[data-theme="dark"] .hero-signature,html[data-theme="dark"] .site-nav nav a{color:#B9CADC}
+html[data-theme="dark"] .sidebar-label,html[data-theme="dark"] .nav-item,html[data-theme="dark"] .course-picker,html[data-theme="dark"] .topbar-location,html[data-theme="dark"] .back-link{color:#AFC3DA}
+html[data-theme="dark"] .nav-item.active,html[data-theme="dark"] .nav-item:hover,html[data-theme="dark"] .demo-pill,html[data-theme="dark"] .feature-indicator,html[data-theme="dark"] .clock-actions button,html[data-theme="dark"] .simulation-strip,html[data-theme="dark"] .agenda-row button,html[data-theme="dark"] .opportunity-mini-icon,html[data-theme="dark"] .quick-prompt,html[data-theme="dark"] .chat-bubble.assistant,html[data-theme="dark"] .opportunity-deadline,html[data-theme="dark"] .opportunity-tags span{background:#213954;color:#DDEBFF;border-color:#35516F}
+html[data-theme="dark"] .demo-pill,html[data-theme="dark"] .view-eyebrow,html[data-theme="dark"] .section-eyebrow{color:#91BCFF}
+html[data-theme="dark"] .icon-button,html[data-theme="dark"] .interest-options span,html[data-theme="dark"] .save-button,html[data-theme="dark"] .announcement button,html[data-theme="dark"] .chat-form input,html[data-theme="dark"] .course-picker select{background:#203650;border-color:#35516F;color:#EEF5FF}
+html[data-theme="dark"] .interest-options input:checked+span{background:#1C4477;color:#C8DCFA;border-color:#6A9FEC}
+html[data-theme="dark"] .chat-head,html[data-theme="dark"] .chat-form,html[data-theme="dark"] .agenda-row,html[data-theme="dark"] .opportunity-mini,html[data-theme="dark"] .opportunity-card-foot,html[data-theme="dark"] .time-control,html[data-theme="dark"] .map-route-steps{border-color:#294561}
+html[data-theme="dark"] .next-class-card,html[data-theme="dark"] .tour-card,html[data-theme="dark"] .bento-lime{color:#142D55}
+html[data-theme="dark"] .map-building rect{fill:#263D59;stroke:#58728F}
+html[data-theme="dark"] .map-building text{fill:#ECF4FF}
+html[data-theme="dark"] .map-building .building-sub{fill:#BACDE4}
+html[data-theme="dark"] .map-building.selected rect,html[data-theme="dark"] .map-building:hover rect{fill:#204D87;stroke:#FFBF91}
+html[data-theme="dark"] #mapSvg>rect{fill:#101E31}
+html[data-theme="dark"] .site-footer{background:#081323;color:#C6D8EB}
+html[data-theme="dark"] .theme-toggle{background:#223E5D;color:#F5C49D;border-color:#426482}
+.official-plan{margin-top:20px;padding:22px;background:#EDF4FC;border:1px solid #C4D9F0;border-radius:20px}
+.official-plan .plan-top{display:flex;justify-content:space-between;align-items:start;gap:15px;flex-wrap:wrap}
+.official-plan h3{font-size:19px;margin:8px 0}
+.official-plan p{font-size:12px;color:#607088;max-width:680px}
+.official-plan a{color:#1A4B9F;font-size:12px;font-weight:800;text-decoration:underline}
+.official-plan iframe{width:100%;height:440px;border:1px solid #C4D9F0;border-radius:12px;background:#fff;margin-top:15px}
+html[data-theme="dark"] .official-plan{background:#14263F;border-color:#294561}
+html[data-theme="dark"] .official-plan p{color:#B9CADC}
+html[data-theme="dark"] .official-plan a{color:#9EC6FF}
+.ai-status{font-size:10px;font-weight:800;color:#2D865A;margin-left:auto;white-space:nowrap}
+.ai-status[data-active="false"]{color:#C7792D}
+.access-entry{display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;background:#1A4B9F;color:white;border-radius:30px;padding:9px 15px;font-size:11px;font-weight:800;white-space:nowrap}
+html[data-theme="dark"] .access-entry{background:#3569B1;color:#fff}
+@media(max-width:650px){.official-plan{padding:14px}.official-plan iframe{height:300px}.theme-toggle{padding:8px 10px;font-size:10px}.access-entry{padding:8px 10px;font-size:10px}}
+@media(max-width:650px){.landing-nav-actions{gap:7px}.landing-nav-actions .btn-sm{padding:9px 11px;font-size:10px}.app-topbar .access-entry{display:none}}

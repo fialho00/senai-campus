@@ -3,36 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#3827b8">
-  <meta name="description" content="NEXO Campus: um assistente inteligente para estudantes. Agenda, oportunidades, comunicados e mapa integrados em um único lugar. Protótipo do desafio Smart Campus SENAI Taguatinga.">
-  <title>NEXO Campus — Seu SENAI, no seu ritmo.</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#1A4B9F">
+  <meta name="description" content="Senai Campus: agenda, oportunidades, comunicados, mapa e a assistente SenAI em um só lugar. Protótipo estudantil Smart Campus SENAI Taguatinga.">
+  <title>Senai Campus — Seu SENAI, no seu ritmo.</title>
+  <link rel="icon" type="image/png" href="assets/senai-logo.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="theme.js"></script>
 </head>
 <body class="landing-body">
   <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+  <div class="institutional-ribbon">PROJETO ESTUDANTIL · SMART CAMPUS <b>✳</b> SENAI TAGUATINGA · 2026</div>
   <header class="site-nav">
-    <a class="brand" href="/" aria-label="NEXO Campus, início"><span class="brand-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>nexo<span class="brand-period">.</span><small>campus</small></span></a>
+    <a class="brand senai-brand" href="/" aria-label="Senai Campus, início"><img class="senai-mark" src="assets/senai-logo.png" alt="SENAI"><span class="senai-campus-label">Campus</span></a>
     <nav aria-label="Menu principal"><a href="#problema">O problema</a><a href="#radar">O diferencial</a><a href="#solucao">A solução</a></nav>
-    <a class="btn btn-dark btn-sm" href="campus.html">Entrar no campus <span aria-hidden="true">↗</span></a>
+    <div class="landing-nav-actions"><button type="button" class="theme-toggle" data-theme-toggle>☾ Escuro</button><a class="btn btn-dark btn-sm" href="login.html">Área SENAI <span aria-hidden="true">↗</span></a></div>
   </header>
   <main id="principal">
     <section class="landing-hero">
       <div class="hero-left">
-        <div class="eyebrow"><span class="pulse-dot"></span> APRESENTANDO O NEXO CAMPUS <span class="eyebrow-tail">/ PROTÓTIPO 2026</span></div>
+        <div class="eyebrow"><span class="pulse-dot"></span> SENAI CAMPUS · TAGUATINGA <span class="eyebrow-tail">/ PROTÓTIPO 2026</span></div>
         <h1>Seu campus.<br><span>Seu ritmo.</span><br>Seu próximo passo.</h1>
         <p>Horários, vagas, comunicados, eventos e lugares. Tudo conectado a um assistente que entende <strong>o que importa para você agora.</strong></p>
-        <div class="hero-cta"><a class="btn btn-lime" href="campus.html?tour=1">Experimentar a NEXO <span aria-hidden="true">↗</span></a><a class="text-link" href="#radar">Descubra o diferencial <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-cta"><a class="btn btn-lime" href="campus.html?tour=1">Explorar o Senai Campus <span aria-hidden="true">↗</span></a><a class="text-link" href="#radar">Descubra o diferencial <span aria-hidden="true">↓</span></a></div>
         <div class="hero-signature"><span class="hero-signature-icon">✳</span><span>Feito para quem estuda, cria e não quer perder oportunidades.</span></div>
       </div>
       <div class="hero-right">
         <div class="hero-glow"></div>
-        <div class="hero-phone" aria-label="Prévia da tela inicial do NEXO Campus">
-          <div class="phone-top"><span class="phone-logo">nexo<span>.</span></span><span class="phone-time">10:20 <span class="phone-signal">●●●</span></span></div>
+        <div class="hero-phone" aria-label="Prévia da tela inicial do Senai Campus">
+          <div class="phone-top"><img class="phone-senai-mark" src="assets/senai-logo.png" alt="SENAI Campus"><span class="phone-time">10:20 <span class="phone-signal">●●●</span></span></div>
           <div class="phone-greeting">QUINTA-FEIRA, 05 NOV</div>
           <h2>Bom dia,<br>Gabriel <span>✳</span></h2>
           <div class="phone-card dark">
-            <div class="phone-kicker"><span class="small-pulse"></span> NEXO RADAR</div>
+            <div class="phone-kicker"><span class="small-pulse"></span> RADAR DO CAMPUS</div>
             <div class="phone-card-head">40 minutos livres.<br>Uma oportunidade.</div>
             <p>Explore a oficina de IA antes da sua próxima atividade.</p>
             <span class="phone-mini-link">Ver meu próximo passo ↗</span>
@@ -51,20 +54,20 @@
       <div class="problem-tiles"><div><span>01 / ROTINA</span><strong>“O que tenho hoje?”</strong><p>Agenda e próximos compromissos sem procurar em vários canais.</p></div><div><span>02 / FUTURO</span><strong>“Qual oportunidade combina comigo?”</strong><p>Vagas, projetos e eventos ligados aos interesses do estudante.</p></div><div><span>03 / ESPAÇO</span><strong>“Onde fica?”</strong><p>Um mapa conectado às atividades e ao próximo destino.</p></div></div>
     </section>
     <section class="radar-feature" id="radar"><div class="landing-section radar-layout">
-      <div class="radar-copy"><div class="section-index light"><span>02</span> O DIFERENCIAL</div><div class="starburst">✳</div><h2>Menos “onde está?”.<br><em>Mais “o que faço agora?”.</em></h2><p>O NEXO Radar cruza quatro sinais: <strong>tempo disponível, agenda, interesses e oportunidades.</strong> Em vez de uma lista infinita, mostra uma próxima ação realmente útil.</p><a class="btn btn-lime" href="campus.html?tour=1">Testar o Radar <span aria-hidden="true">↗</span></a></div>
-      <div class="radar-illustration"><div class="radar-orbit orbit-one"></div><div class="radar-orbit orbit-two"></div><div class="radar-core"><span>✳</span><strong>NEXO<br>RADAR</strong></div><div class="orbit-pill pill-one"><span>◷</span> 40 min livres</div><div class="orbit-pill pill-two"><span>♧</span> Interesse: IA</div><div class="orbit-pill pill-three"><span>↗</span> Oficina compatível</div><div class="orbit-pill pill-four"><span>▦</span> Próxima aula 11h</div></div>
+      <div class="radar-copy"><div class="section-index light"><span>02</span> O DIFERENCIAL</div><div class="starburst">✳</div><h2>Menos “onde está?”.<br><em>Mais “o que faço agora?”.</em></h2><p>O Radar do Campus cruza quatro sinais: <strong>tempo disponível, agenda, interesses e oportunidades.</strong> Em vez de uma lista infinita, mostra uma próxima ação realmente útil.</p><a class="btn btn-lime" href="campus.html?tour=1">Testar o Radar <span aria-hidden="true">↗</span></a></div>
+      <div class="radar-illustration"><div class="radar-orbit orbit-one"></div><div class="radar-orbit orbit-two"></div><div class="radar-core"><span>✳</span><strong>RADAR<br>CAMPUS</strong></div><div class="orbit-pill pill-one"><span>◷</span> 40 min livres</div><div class="orbit-pill pill-two"><span>♧</span> Interesse: IA</div><div class="orbit-pill pill-three"><span>↗</span> Oficina compatível</div><div class="orbit-pill pill-four"><span>▦</span> Próxima aula 11h</div></div>
     </div></section>
     <section class="landing-section solution-section" id="solucao"><div class="section-index"><span>03</span> UMA SOLUÇÃO COMPLETA</div><div class="solution-heading"><h2>O que você precisa.<br><em>Antes de precisar procurar.</em></h2><p>Uma experiência pensada para estudantes do ensino técnico: rápida no celular, clara na rotina e conectada ao futuro profissional.</p></div>
       <div class="feature-bento">
         <article class="bento-card bento-primary"><span class="bento-index">01 / PERSONALIZAÇÃO</span><div class="bento-icon">✳</div><h3>Radar inteligente</h3><p>Recomendações que consideram o seu tempo, sua agenda e seus interesses.</p><span class="bento-deco">AGORA ↗</span></article>
         <article class="bento-card bento-cream"><span class="bento-index">02 / ORGANIZAÇÃO</span><div class="bento-icon">▦</div><h3>Agenda clara</h3><p>O que vem a seguir, onde acontece e quanto tempo falta.</p></article>
         <article class="bento-card bento-lime"><span class="bento-index">03 / CARREIRA</span><div class="bento-icon">↗</div><h3>Vagas e oportunidades</h3><p>Descubra estágios e projetos alinhados à sua área.</p></article>
-        <article class="bento-card bento-white"><span class="bento-index">04 / COMUNICAÇÃO</span><div class="bento-icon">◉</div><h3>Avisos no contexto</h3><p>Informações relevantes, sem perder o foco entre notificações.</p></article>
+        <article class="bento-card bento-white"><span class="bento-index">04 / COMUNICAÇÃO + IA</span><div class="bento-icon">◉</div><h3>SenAI, seu assistente</h3><p>Dúvidas e orientações em linguagem natural, com integração Gemini preparada no servidor.</p></article>
         <article class="bento-card bento-dark"><span class="bento-index">05 / LOCALIZAÇÃO</span><div class="bento-icon">◇</div><h3>Mapa conectado</h3><p>Do próximo compromisso à localização ilustrativa em um toque.</p></article>
       </div>
     </section>
     <section class="landing-cta-final"><div class="landing-section final-inner"><span class="final-mark">✳</span><h2>A próxima oportunidade pode estar a um clique.<br><em>Ou a uma pergunta.</em></h2><p>Conheça a experiência. Explore os fluxos. Imagine o seu SENAI mais conectado.</p><a class="btn btn-lime" href="campus.html?tour=1">Abrir demonstração interativa <span aria-hidden="true">↗</span></a></div></section>
   </main>
-  <footer class="site-footer"><a class="brand" href="/"><span class="brand-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>nexo<span class="brand-period">.</span><small>campus</small></span></a><p>Protótipo independente • Desafio Smart Campus SENAI Taguatinga • Dados ilustrativos, não oficiais.</p><a href="#principal">Voltar ao topo ↑</a></footer>
+  <footer class="site-footer"><a class="brand senai-brand" href="/" aria-label="Senai Campus, início"><img class="senai-mark" src="assets/senai-logo.png" alt="SENAI"><span class="senai-campus-label">Campus</span></a><p>Protótipo independente • Desafio Smart Campus SENAI Taguatinga • Dados ilustrativos, não oficiais.</p><a href="#principal">Voltar ao topo ↑</a></footer>
 </body>
 </html>
