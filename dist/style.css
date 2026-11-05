@@ -20,3 +20,30 @@
 .senai-brand .senai-campus-label{display:inline-block;font:800 15px/1.1 'DM Sans',sans-serif;color:#1A4B9F;letter-spacing:-.025em;text-transform:uppercase;border-left:2px solid #EF5E31;padding-left:10px}
 .phone-senai-mark{width:88px;height:auto;display:block;background:#fff;border-radius:4px;padding:2px}
 @media(max-width:650px){.senai-brand .senai-mark{width:99px}.senai-brand .senai-campus-label{font-size:12px;padding-left:7px}}
+
+/* Nosso SENAI photo gallery */
+.senai-gallery-section{background:#F4F8FD;scroll-margin-top:80px}
+.senai-gallery-intro{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+.senai-gallery-intro h2{font-size:clamp(42px,5vw,76px);line-height:1.08;letter-spacing:-.067em;margin:0}
+.senai-gallery-intro h2 em{font-style:normal;color:var(--violet)}
+.senai-gallery-intro p{max-width:420px;color:var(--muted);font-size:17px;margin:0}
+.senai-gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.senai-photo{min-width:0;margin:0;background:#fff;border:1px solid #E4EDF8;border-radius:19px;overflow:hidden;box-shadow:0 7px 24px #142D550A}
+.senai-photo-feature{grid-column:span 2}
+.senai-photo a{display:block;overflow:hidden;aspect-ratio:1;background:#DCE7F4}
+.senai-photo-feature a{aspect-ratio:2/1}
+.senai-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.senai-photo a:hover img{transform:scale(1.035)}
+.senai-photo a:focus-visible{outline:3px solid #EF5E31;outline-offset:-3px}
+.senai-photo figcaption{display:flex;align-items:center;gap:10px;min-height:53px;padding:10px 15px;color:var(--ink);font-size:13px;font-weight:800}
+.senai-photo figcaption span{color:var(--violet);font-size:10px;letter-spacing:.1em}
+.senai-gallery-note{color:var(--muted);font-size:11px;margin:22px 0 0}
+html[data-theme="dark"] .senai-gallery-section{background:#10213B}
+html[data-theme="dark"] .senai-gallery-intro h2,html[data-theme="dark"] .senai-photo figcaption{color:#F5F8FC}
+html[data-theme="dark"] .senai-gallery-intro h2 em,html[data-theme="dark"] .senai-gallery-section .section-index,html[data-theme="dark"] .senai-photo figcaption span{color:#FFBF91}
+html[data-theme="dark"] .senai-photo{background:#172D4C;border-color:#294567}
+html[data-theme="dark"] .senai-photo a{background:#294567}
+html[data-theme="dark"] .senai-gallery-intro p,html[data-theme="dark"] .senai-gallery-note{color:#B7C8DD}
+@media(max-width:900px){.senai-gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.senai-gallery-intro{display:block}.senai-gallery-intro p{margin-top:18px}}
+@media(max-width:650px){.senai-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.senai-gallery-intro{margin-bottom:25px}.senai-gallery-intro p{font-size:14px}.senai-photo{border-radius:13px}.senai-photo figcaption{min-height:48px;padding:8px 10px;font-size:11px;gap:6px}.senai-photo a{aspect-ratio:1.2}.senai-photo-feature a{aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.senai-photo img{transition:none}}

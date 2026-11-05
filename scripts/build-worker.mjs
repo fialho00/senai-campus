@@ -7,7 +7,7 @@ const dist = path.join(root, 'dist');
 const mime = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml',
-  '.png': 'image/png', '.pdf': 'application/pdf'
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.pdf': 'application/pdf'
 };
 
 const assets = {};

@@ -10,7 +10,12 @@ const request = (path, init) => new Request(`https://nexo.example${path}`, init)
 test('Páginas públicas preservadas e com recursos novos', async () => {
   const landing = await worker.fetch(request('/'), {});
   assert.equal(landing.status, 200);
-  assert.match(await landing.text(), /SENAI TAGUATINGA/);
+  const landingHtml = await landing.text();
+  assert.match(landingHtml, /SENAI TAGUATINGA/);
+  assert.match(landingHtml, /id="nosso-senai"/);
+  const galleryImage = await worker.fetch(request('/assets/nosso-senai/01.jpg'), {});
+  assert.equal(galleryImage.status, 200);
+  assert.equal(galleryImage.headers.get('content-type'), 'image/jpeg');
   const campus = await worker.fetch(request('/campus.html'), {});
   const html = await campus.text();
   assert.match(html, /data-theme-toggle/);
