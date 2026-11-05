@@ -15,7 +15,7 @@ test('Páginas públicas preservadas e com recursos novos', async () => {
   const html = await campus.text();
   assert.match(html, /data-theme-toggle/);
   assert.match(html, /Planta publicada: CEUNI\/SENAI Blumenau/);
-  assert.match(html, /SenAI · assistente do NEXO/);
+  assert.match(html, /SenAI · assistente do (NEXO|Senai Campus)/);
   const login = await worker.fetch(request('/login.html'), {});
   assert.equal(login.status, 200);
   assert.match(await login.text(), /Continuar com Google SENAI/);

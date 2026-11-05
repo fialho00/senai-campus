@@ -124,9 +124,10 @@ async function handleGemini(request, env) {
   const recent = Array.isArray(body.history) ? body.history.slice(-6).filter(m => ['user', 'model'].includes(m?.role) && typeof m?.text === 'string').map(m => ({ role: m.role, parts: [{ text: m.text.slice(0, MAX_MESSAGE_LENGTH) }] })) : [];
   const system = `Você é SenAI, assistente experimental do Senai Campus, protótipo independente criado por estudantes para o desafio Smart Campus SENAI Taguatinga. Responda em português brasileiro, com empatia e objetividade (até 110 palavras). Ajude com organização, estudos, programação e oportunidades acadêmicas. Não se apresente como sistema oficial do SENAI. Nunca invente notícias, horários, locais, ofertas, vagas ou regras oficiais. Os dados da interface são FICTÍCIOS. Se o usuário perguntar sobre uma informação real do SENAI, diga que precisa consultar a instituição. Contexto simulado: ${JSON.stringify(ctx)}. Recomende o Radar do Campus para combinar tempo e atividades e a agenda/mapa apenas como demonstração.`;
   try {
-    const resp = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
+    const model = /^[a-z0-9][a-z0-9.-]{3,65}$/.test(env.GEMINI_MODEL || '') ? env.GEMINI_MODEL : 'gemini-3.8-flash';
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
       method: 'POST', headers: { 'content-type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-      body: JSON.stringify({ systemInstruction: { parts: [{ text: system }] }, contents: [...recent, { role: 'user', parts: [{ text: message }] }], generationConfig: { maxOutputTokens: 350, temperature: 0.45 } }),
+      body: JSON.stringify({ systemInstruction: { parts: [{ text: system }] }, contents: [...recent, { role: 'user', parts: [{ text: message }] }], generationConfig: { maxOutputTokens: 700, temperature: 0.45, thinkingConfig: { thinkingLevel: 'low' } } }),
       signal: AbortSignal.timeout(22000)
     });
     if (!resp.ok) return json({ error: resp.status === 429 ? 'Gemini temporariamente sem cota. Tente novamente.' : 'O Gemini está indisponível no momento.' }, 502);
@@ -142,7 +143,7 @@ function serveStatic(path) {
   const file = STATIC_ASSETS[path];
   if (!file) return new Response('Página não encontrada.', { status: 404 });
   const bytes = bytesFromB64url(file.base64);
-  return new Response(bytes, { headers: { 'content-type': file.mime, 'cache-control': path.endsWith('.html') || path === '/' ? 'public, max-age=60' : 'public, max-age=3600', ...staticHeaders } });
+  return new Response(bytes, { headers: { 'content-type': file.mime, 'cache-control': /\.(png|pdf|svg)$/.test(path) ? 'public, max-age=3600' : 'public, max-age=60', ...staticHeaders } });
 }
 
 export default {

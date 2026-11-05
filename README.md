@@ -43,7 +43,8 @@ HTML, CSS responsivo, JavaScript local e um **Cloudflare Worker** simples para s
 
 Configure **somente no gerenciador de segredos do Site** (nunca no HTML, JavaScript público, Git ou URL):
 
-- `GEMINI_API_KEY`: chave Google AI Studio com cota definida. O backend usa o modelo `gemini-2.5-flash` via `generateContent`, limite de saída 350 tokens e proteção básica de frequência por instância.
+- `GEMINI_API_KEY`: chave Google AI Studio com cota definida. O backend usa por padrão o modelo `gemini-3.8-flash` via `generateContent`, limite de saída 700 tokens e proteção básica de frequência por instância.
+- `GEMINI_MODEL` (opcional): identificador de modelo de texto alternativo compatível com o payload de geração.
 - `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`: credenciais OAuth para aplicativo Web no Google Cloud do responsável.
 - `GOOGLE_ALLOWED_HD`: um ou mais domínios Google Workspace **confirmados com o SENAI** (separados por vírgulas). Não supor a partir do sufixo de e-mail; o backend valida o `hd` assinado pelo Google.
 - `AUTH_SESSION_SECRET`: segredo aleatório de ao menos 32 caracteres, usado para assinar o cookie de sessão.

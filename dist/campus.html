@@ -7,11 +7,11 @@
   <meta name="description" content="Demonstração do Senai Campus: agenda, radar inteligente, oportunidades, mural, mapa e assistente SenAI em uma experiência integrada.">
   <title>Meu Campus | Senai Campus</title>
   <link rel="icon" type="image/png" href="assets/senai-logo.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="campus.css">
-  <link rel="stylesheet" href="theme.css">
-  <script src="theme.js"></script>
-  <script src="campus.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="campus.css?v=5">
+  <link rel="stylesheet" href="theme.css?v=5">
+  <script src="theme.js?v=5"></script>
+  <script src="campus.js?v=5" defer></script>
 </head>
 <body class="app-body">
   <a class="skip-link" href="#appMain">Pular para o painel</a>
@@ -88,13 +88,13 @@
               <svg id="mapSvg" viewBox="0 0 750 500" role="img" aria-label="Mapa conceitual do campus, com Entrada, Bloco A, Bloco B, Biblioteca e Laboratório Maker. Não é uma planta real.">
                 <defs><pattern id="mapDots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#e3deee"/></pattern></defs>
                 <rect width="750" height="500" fill="#f4f2f9"/><rect width="750" height="500" fill="url(#mapDots)"/>
-                <path d="M80 430 H280 V300 H485 V155 H655" stroke="#e0dbe8" stroke-width="36" fill="none" stroke-linecap="round"/><path id="routePath" d="M80 430 H280 V300 H485 V155" stroke="#4e38d7" stroke-width="7" stroke-dasharray="11 10" fill="none" stroke-linecap="round"/>
+                <path d="M80 430 H280 V300 H485 V155 H655" stroke="#CFDCEC" stroke-width="36" fill="none" stroke-linecap="round"/><path id="routePath" d="M80 430 H280 V300 H485 V155" stroke="#EF5E31" stroke-width="7" stroke-dasharray="11 10" fill="none" stroke-linecap="round"/>
                 <g class="map-building" data-building="entrada" tabindex="0" role="button" aria-label="Selecionar Entrada"><rect x="25" y="380" rx="16" width="140" height="88"/><text x="95" y="417" text-anchor="middle">ENTRADA</text><text x="95" y="437" text-anchor="middle" class="building-sub">Ponto inicial</text></g>
                 <g class="map-building" data-building="blocoa" tabindex="0" role="button" aria-label="Selecionar Bloco A"><rect x="220" y="335" rx="16" width="160" height="100"/><text x="300" y="380" text-anchor="middle">BLOCO A</text><text x="300" y="402" text-anchor="middle" class="building-sub">Salas e apoio</text></g>
                 <g class="map-building" data-building="blocob" tabindex="0" role="button" aria-label="Selecionar Bloco B"><rect x="385" y="245" rx="16" width="170" height="105"/><text x="470" y="290" text-anchor="middle">BLOCO B</text><text x="470" y="312" text-anchor="middle" class="building-sub">Lab 07</text></g>
                 <g class="map-building" data-building="maker" tabindex="0" role="button" aria-label="Selecionar Lab Maker"><rect x="550" y="95" rx="16" width="155" height="110"/><text x="627" y="140" text-anchor="middle">LAB MAKER</text><text x="627" y="163" text-anchor="middle" class="building-sub">Projetos</text></g>
                 <g class="map-building" data-building="biblioteca" tabindex="0" role="button" aria-label="Selecionar Biblioteca"><rect x="135" y="100" rx="16" width="175" height="105"/><text x="222" y="147" text-anchor="middle">BIBLIOTECA</text><text x="222" y="169" text-anchor="middle" class="building-sub">Estudo</text></g>
-                <circle cx="80" cy="430" r="13" fill="#d6ff66" stroke="#4934c4" stroke-width="5"/>
+                <circle cx="80" cy="430" r="13" fill="#FFBF91" stroke="#1A4B9F" stroke-width="5"/>
               </svg>
               <p class="map-disclaimer">Mapa conceitual para demonstração. Os blocos, salas e trajetos não representam a planta oficial do SENAI Taguatinga.</p>
             </div><aside class="surface-card map-details"><span class="section-eyebrow">DESTINO SELECIONADO</span><div class="map-detail-icon" id="mapDetailIcon">◇</div><h2 id="mapDetailTitle">Bloco B</h2><p id="mapDetailDesc">Ambiente de ensino. A rota é ilustrativa.</p><div class="map-route-steps"><div><span>01</span><strong>Entrada principal</strong></div><div><span>02</span><strong id="mapRouteDest">Bloco B</strong></div></div><button type="button" class="btn btn-dark" data-open="agenda">Ver próxima atividade ↗</button></aside></div>
