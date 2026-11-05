@@ -34,3 +34,7 @@ O **NEXO Radar** conecta agenda, tempo disponível, interesses e oportunidades p
 ## Técnicas
 
 HTML sem build, CSS responsivo, JavaScript local e SVG. Funciona sem API key, conta ou dependências em tempo de execução.
+
+## Identidade visual
+
+Paleta inspirada no Manual de Marcas 2024 do SENAI: azul institucional #1A4B9F e laranja #EF5E31, com branco, azul-marinho e tons claros de apoio. A NEXO é uma proposta independente de hackathon; não usa a marca oficial do SENAI como logotipo próprio.
