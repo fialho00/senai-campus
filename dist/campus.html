@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5fb">
+  <meta name="description" content="Demonstração do NEXO Campus: agenda, radar inteligente, oportunidades, mural, mapa e assistente em uma experiência integrada.">
+  <title>Meu Campus | NEXO Campus</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="campus.css">
+  <script src="campus.js" defer></script>
+</head>
+<body class="app-body">
+  <a class="skip-link" href="#appMain">Pular para o painel</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand side-brand" href="/" aria-label="NEXO Campus, landing page"><span class="brand-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>nexo<span class="brand-period">.</span><small>campus</small></span></a>
+      <div class="sidebar-label">SEU ESPAÇO</div>
+      <nav class="side-nav" aria-label="Áreas da plataforma">
+        <button type="button" class="nav-item active" data-nav="inicio" aria-current="page"><span class="nav-symbol">◫</span><span>Visão geral</span></button>
+        <button type="button" class="nav-item" data-nav="radar"><span class="nav-symbol">✳</span><span>Meu Radar</span><span class="nav-new">NOVO</span></button>
+        <button type="button" class="nav-item" data-nav="agenda"><span class="nav-symbol">▦</span><span>Agenda</span></button>
+        <button type="button" class="nav-item" data-nav="oportunidades"><span class="nav-symbol">↗</span><span>Oportunidades</span></button>
+        <button type="button" class="nav-item" data-nav="mural"><span class="nav-symbol">◉</span><span>Comunicados</span></button>
+        <button type="button" class="nav-item" data-nav="mapa"><span class="nav-symbol">◇</span><span>Mapa do campus</span></button>
+        <button type="button" class="nav-item" data-nav="assistente"><span class="nav-symbol">✦</span><span>Pergunte à NEXO</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-help"><span>✦</span><strong>Uma pergunta pode<br>mudar seu dia.</strong><p>Converse com a NEXO para descobrir seu próximo passo.</p><button type="button" data-open="assistente">Fazer pergunta ↗</button></div>
+        <a href="/" class="back-link">← Sobre o projeto</a>
+      </div>
+    </aside>
+    <div class="app-content">
+      <header class="app-topbar">
+        <div class="topbar-location"><span class="topbar-icon">✳</span><span>Smart Campus <strong>SENAI Taguatinga</strong></span><span class="demo-pill">DEMO</span></div>
+        <div class="topbar-controls">
+          <label class="course-picker">Curso <select id="courseSelect" aria-label="Escolha seu curso"><option value="ds">Desenvolvimento de Sistemas</option><option value="eletrica">Eletrotécnica</option><option value="design">Design Digital</option></select></label>
+          <button class="icon-button notification-button" id="notificationButton" aria-label="Abrir notificações" aria-expanded="false" type="button">♧<span id="notificationCount">3</span></button>
+          <button class="profile-avatar" id="profileButton" type="button" title="Perfil de demonstração">GF</button>
+        </div>
+        <div class="notification-popover" id="notificationPopover" hidden><div class="notification-heading"><strong>Notificações</strong><button id="clearNotifications" type="button">Marcar como lidas</button></div><div id="notificationList"></div></div>
+      </header>
+      <main class="main-panel" id="appMain">
+        <div class="simulation-strip"><span>◉</span> <strong>Protótipo interativo:</strong> cursos, horários, vagas e salas são exemplos fictícios. Não representa os sistemas oficiais do SENAI. <button id="startTour" type="button">Ver tour guiado ↗</button></div>
+        <section class="app-view is-visible" data-view="inicio">
+          <div class="view-eyebrow">QUINTA-FEIRA, 05 DE NOVEMBRO DE 2026 <span>✳</span> SEU CAMPUS, DO SEU JEITO</div>
+          <div class="welcome-head"><div><h1>Bom dia, Gabriel <span>✳</span></h1><p>Seu dia tem oportunidades esperando. A NEXO já conectou os pontos.</p></div><div class="demo-clock"><small>HORÁRIO SIMULADO</small><strong id="clockMain">10:20</strong><div class="clock-actions"><button class="clock-prev" aria-label="Voltar horário">−</button><button class="clock-next" aria-label="Avançar horário">+</button></div></div></div>
+          <div class="dashboard-top-grid">
+            <article class="dashboard-radar-card"><div class="dash-radar-kicker"><span class="small-pulse"></span> NEXO RADAR <span class="dash-radar-label">PRÓXIMO PASSO</span></div><div class="dash-radar-content"><span class="radar-glyph">✳</span><h2 id="homeRadarTitle">Você tem tempo para avançar.</h2><p id="homeRadarDesc">Estamos conectando sua agenda e oportunidades.</p><button type="button" class="btn btn-lime" data-open="radar">Explorar meu Radar <span aria-hidden="true">↗</span></button></div><div class="dashboard-radar-foot"><span id="homeRadarMeta">◷ Agenda + interesses</span><span>CONEXÕES QUE VIRAM AÇÃO</span></div></article>
+            <article class="next-class-card"><div class="card-upper"><span>PRÓXIMA ATIVIDADE</span><span class="card-sticker">▦</span></div><div class="next-time" id="nextClassTime">11:00</div><h3 id="nextClassTitle">Orientação de Projeto</h3><p id="nextClassPlace">Bloco B · Lab 07</p><div class="card-bottom"><span id="nextClassCountdown">Em 40 minutos</span><button type="button" data-open="mapa">Como chegar ↗</button></div></article>
+          </div>
+          <div class="dashboard-bottom-grid">
+            <section class="surface-card dashboard-schedule"><div class="surface-head"><div><span class="section-eyebrow">ORGANIZE-SE</span><h2>Sua agenda de hoje</h2></div><button type="button" class="subtle-button" data-open="agenda">Ver agenda completa ↗</button></div><div id="homeAgenda"></div></section>
+            <section class="surface-card dashboard-opportunity"><div class="surface-head"><div><span class="section-eyebrow">NÃO DEIXE PASSAR</span><h2>Para o seu futuro</h2></div><button type="button" class="subtle-button" data-open="oportunidades">Ver todas ↗</button></div><div id="homeOpportunities"></div></section>
+          </div>
+        </section>
+        <section class="app-view" data-view="radar">
+          <div class="view-eyebrow">INTELIGÊNCIA CONTEXTUAL <span>✳</span> UMA DECISÃO DE CADA VEZ</div>
+          <div class="view-title-row"><div><h1>Seu Radar <span class="title-accent">✳</span></h1><p>Seu tempo tem valor. Descubra onde ele pode render mais.</p></div><span class="feature-indicator">EXPERIÊNCIA PRINCIPAL</span></div>
+          <div class="radar-workspace">
+            <div class="radar-settings surface-card"><span class="section-eyebrow">01 / SEU CONTEXTO</span><h2>O que importa para você?</h2><p>O Radar conecta sua rotina aos seus interesses. Experimente mudar os sinais.</p><fieldset class="interest-field"><legend>Áreas que me interessam</legend><div class="interest-options"><label><input type="checkbox" value="ia" checked><span>✳ IA e tecnologia</span></label><label><input type="checkbox" value="carreira" checked><span>↗ Estágios</span></label><label><input type="checkbox" value="projetos"><span>◈ Projetos</span></label><label><input type="checkbox" value="design"><span>◉ Design</span></label><label><input type="checkbox" value="robotica"><span>⚙ Robótica</span></label></div></fieldset><div class="time-control"><label for="timeSlider">Horário simulado <strong id="timeSliderLabel">10:20</strong></label><input type="range" id="timeSlider" min="480" max="1020" step="10" value="620"><div class="time-scale"><span>08:00</span><span>12:30</span><span>17:00</span></div></div><button type="button" class="btn btn-dark radar-recalc" id="recalculateRadar">Atualizar meu Radar <span>↗</span></button><p class="privacy-caption">◌ As preferências da demonstração ficam apenas neste navegador.</p></div>
+            <div class="radar-result"><div class="radar-result-top"><span><span class="small-pulse"></span> 02 / RECOMENDAÇÃO EM TEMPO REAL</span><span id="radarConfidence">CONTEXTUAL</span></div><div class="result-main"><div class="result-symbol">✳</div><p class="result-label">NEXO ENCONTROU UM PRÓXIMO PASSO</p><h2 id="radarTitle">Seu próximo passo</h2><p id="radarDescription">Calculando uma recomendação útil.</p><div class="radar-stat-row"><div><small>SEU TEMPO</small><strong id="radarFreeTime">—</strong></div><div><small>PRÓXIMA AULA</small><strong id="radarNext">—</strong></div><div><small>ONDE</small><strong id="radarLocation">—</strong></div></div><div class="radar-action-row"><button type="button" class="btn btn-lime" id="radarPrimary">Ver próximo passo ↗</button><button type="button" class="btn btn-outline-white" data-open="assistente">Perguntar à NEXO</button></div></div><div class="result-bottom"><span>AGENDA ↔ INTERESSES ↔ OPORTUNIDADES ↔ MAPA</span><span>✦</span></div></div>
+          </div>
+          <div class="radar-explainer"><span>COMO FUNCIONA</span><div><strong>1. Entende a rotina</strong><p>Consulta os horários simulados.</p></div><div><strong>2. Encontra janelas</strong><p>Calcula os minutos disponíveis.</p></div><div><strong>3. Conecta oportunidades</strong><p>Prioriza interesses, prazos e próximos locais.</p></div></div>
+        </section>
+        <section class="app-view" data-view="agenda">
+          <div class="view-eyebrow">ROTINA EM ORDEM</div><div class="view-title-row"><div><h1>Minha agenda</h1><p>Compromissos, horários e o próximo lugar, sem adivinhação.</p></div><span class="feature-indicator">05 NOV • QUINTA</span></div>
+          <div class="agenda-layout"><section class="surface-card"><div class="surface-head"><h2>Quinta-feira, 5 de novembro</h2><span class="small-tag">DEMONSTRAÇÃO</span></div><div id="fullAgenda" class="agenda-full-list"></div></section><aside class="surface-card agenda-side"><span class="section-eyebrow">VISÃO DO DIA</span><div class="day-meter"><strong id="dayProgress">—</strong><span>do dia simulado</span></div><div class="meter-track"><span id="dayProgressBar"></span></div><p>O Radar encontra intervalos entre compromissos e indica ações possíveis.</p><button type="button" class="btn btn-dark" data-open="radar">Encontrar meu tempo livre ↗</button></aside></div>
+        </section>
+        <section class="app-view" data-view="oportunidades">
+          <div class="view-eyebrow">CARREIRA EM MOVIMENTO</div><div class="view-title-row"><div><h1>Oportunidades</h1><p>Vagas e experiências que conversam com o seu curso.</p></div><span class="feature-indicator">EXEMPLOS FICTÍCIOS</span></div>
+          <div class="opportunity-toolbar"><div class="filter-pills" role="group" aria-label="Filtrar oportunidades"><button type="button" class="filter-pill active" data-filter="todas">Todas</button><button type="button" class="filter-pill" data-filter="estagio">Estágios</button><button type="button" class="filter-pill" data-filter="evento">Eventos</button><button type="button" class="filter-pill" data-filter="salvas">Salvas <span id="savedCount">0</span></button></div><div class="filter-count" id="opportunityCount"></div></div>
+          <div id="opportunityList" class="opportunity-grid"></div>
+        </section>
+        <section class="app-view" data-view="mural">
+          <div class="view-eyebrow">INFORMAÇÃO SEM RUÍDO</div><div class="view-title-row"><div><h1>Comunicados</h1><p>O que precisa de atenção, em vez de mais uma caixa de mensagens.</p></div><span class="feature-indicator">MURAL DEMONSTRATIVO</span></div>
+          <div id="announcementList" class="announcement-list"></div>
+        </section>
+        <section class="app-view" data-view="mapa">
+          <div class="view-eyebrow">SEU CAMPUS MAIS PRÓXIMO</div><div class="view-title-row"><div><h1>Mapa do campus</h1><p>Escolha um destino no mapa e veja o caminho ilustrativo.</p></div><span class="feature-indicator">MAPA ESQUEMÁTICO FICTÍCIO</span></div>
+          <div class="map-layout"><div class="surface-card campus-map">
+              <div class="map-heading"><strong>EXPLORAR CAMPUS</strong><span>Toque em um bloco</span></div>
+              <svg id="mapSvg" viewBox="0 0 750 500" role="img" aria-label="Mapa conceitual do campus, com Entrada, Bloco A, Bloco B, Biblioteca e Laboratório Maker. Não é uma planta real.">
+                <defs><pattern id="mapDots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#e3deee"/></pattern></defs>
+                <rect width="750" height="500" fill="#f4f2f9"/><rect width="750" height="500" fill="url(#mapDots)"/>
+                <path d="M80 430 H280 V300 H485 V155 H655" stroke="#e0dbe8" stroke-width="36" fill="none" stroke-linecap="round"/><path id="routePath" d="M80 430 H280 V300 H485 V155" stroke="#4e38d7" stroke-width="7" stroke-dasharray="11 10" fill="none" stroke-linecap="round"/>
+                <g class="map-building" data-building="entrada" tabindex="0" role="button" aria-label="Selecionar Entrada"><rect x="25" y="380" rx="16" width="140" height="88"/><text x="95" y="417" text-anchor="middle">ENTRADA</text><text x="95" y="437" text-anchor="middle" class="building-sub">Ponto inicial</text></g>
+                <g class="map-building" data-building="blocoa" tabindex="0" role="button" aria-label="Selecionar Bloco A"><rect x="220" y="335" rx="16" width="160" height="100"/><text x="300" y="380" text-anchor="middle">BLOCO A</text><text x="300" y="402" text-anchor="middle" class="building-sub">Salas e apoio</text></g>
+                <g class="map-building" data-building="blocob" tabindex="0" role="button" aria-label="Selecionar Bloco B"><rect x="385" y="245" rx="16" width="170" height="105"/><text x="470" y="290" text-anchor="middle">BLOCO B</text><text x="470" y="312" text-anchor="middle" class="building-sub">Lab 07</text></g>
+                <g class="map-building" data-building="maker" tabindex="0" role="button" aria-label="Selecionar Lab Maker"><rect x="550" y="95" rx="16" width="155" height="110"/><text x="627" y="140" text-anchor="middle">LAB MAKER</text><text x="627" y="163" text-anchor="middle" class="building-sub">Projetos</text></g>
+                <g class="map-building" data-building="biblioteca" tabindex="0" role="button" aria-label="Selecionar Biblioteca"><rect x="135" y="100" rx="16" width="175" height="105"/><text x="222" y="147" text-anchor="middle">BIBLIOTECA</text><text x="222" y="169" text-anchor="middle" class="building-sub">Estudo</text></g>
+                <circle cx="80" cy="430" r="13" fill="#d6ff66" stroke="#4934c4" stroke-width="5"/>
+              </svg>
+              <p class="map-disclaimer">Mapa conceitual para demonstração. Os blocos, salas e trajetos não representam a planta oficial do SENAI Taguatinga.</p>
+            </div><aside class="surface-card map-details"><span class="section-eyebrow">DESTINO SELECIONADO</span><div class="map-detail-icon" id="mapDetailIcon">◇</div><h2 id="mapDetailTitle">Bloco B</h2><p id="mapDetailDesc">Ambiente de ensino. A rota é ilustrativa.</p><div class="map-route-steps"><div><span>01</span><strong>Entrada principal</strong></div><div><span>02</span><strong id="mapRouteDest">Bloco B</strong></div></div><button type="button" class="btn btn-dark" data-open="agenda">Ver próxima atividade ↗</button></aside></div>
+        </section>
+        <section class="app-view" data-view="assistente">
+          <div class="view-eyebrow">SEU ASSISTENTE CONTEXTUAL</div><div class="view-title-row"><div><h1>Pergunte à NEXO <span class="title-accent">✦</span></h1><p>Uma conversa que entende sua rotina e aponta ações concretas.</p></div><span class="feature-indicator">ASSISTENTE DEMONSTRATIVO</span></div>
+          <div class="chat-layout"><div class="chat-card"><div class="chat-head"><span class="chat-avatar">✦</span><div><strong>NEXO Assistente</strong><small>Respostas baseadas nos dados simulados da plataforma</small></div><span class="chat-online"><i></i> Ativo</span></div><div id="chatMessages" class="chat-messages" aria-live="polite"></div><form id="chatForm" class="chat-form"><label class="sr-only" for="chatInput">Sua pergunta</label><input id="chatInput" type="text" autocomplete="off" placeholder="Pergunte sobre aulas, vagas, tempo livre..." maxlength="250"><button type="submit" aria-label="Enviar pergunta">↗</button></form></div><aside class="chat-examples surface-card"><span class="section-eyebrow">TENTE PERGUNTAR</span><h2>Comece por aqui.</h2><div class="prompt-list"><button class="quick-prompt" data-prompt="Tenho tempo livre. O que faço agora?">◷ Tenho tempo livre. O que faço agora? <span>↗</span></button><button class="quick-prompt" data-prompt="Quais vagas de estágio combinam comigo?">↗ Quais vagas combinam comigo? <span>↗</span></button><button class="quick-prompt" data-prompt="Onde fica minha próxima aula?">◇ Onde fica minha próxima aula? <span>↗</span></button><button class="quick-prompt" data-prompt="Quais comunicados são importantes?">◉ Quais comunicados são importantes? <span>↗</span></button></div><p class="chat-disclaimer">Nesta versão, o assistente usa regras transparentes sobre dados fictícios, sem conexão com IA externa ou sistemas oficiais.</p></aside></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="tour-overlay" id="tourOverlay" hidden><div class="tour-card"><span class="tour-kicker">✳ TOUR GUIADO / <span id="tourStepLabel">1 DE 4</span></span><h2 id="tourTitle">Seu campus, com contexto.</h2><p id="tourText">Descubra como a NEXO conecta informações para ajudar o estudante a tomar decisões.</p><div class="tour-actions"><button id="endTour" type="button">Encerrar</button><button id="nextTour" type="button">Próximo passo ↗</button></div></div></div>
+</body>
+</html>

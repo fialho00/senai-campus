@@ -1,43 +1,39 @@
-# NEXO — roteiro de pitch (3 minutos)
+# Pitch NEXO Campus — 3 minutos
 
-## 0:00–0:25 — A pergunta que prende
+## 0:00–0:25 — O problema
 
-"Uma embalagem pode trazer todas as informações obrigatórias e, mesmo assim, não conseguir se comunicar com todo mundo. Pense em uma pessoa com baixa visão tentando ler ingredientes minúsculos. Ou alguém com uma alergia tentando achar, entre muitas linhas, o que realmente importa. O problema não é apenas o conteúdo. É o acesso."
+“Hoje, um estudante pode perder uma oportunidade não por falta de interesse, mas porque ela ficou perdida entre avisos, horários, grupos e diferentes canais. Quando precisamos abrir cinco lugares para entender nosso dia, a informação deixa de ajudar.”
 
-## 0:25–0:55 — Apresente a solução
+## 0:25–0:50 — A solução
 
-"Criamos a NEXO: uma proposta de embalagem inclusiva que conecta design físico a um rótulo digital adaptável. Nosso primeiro exemplo é uma barra fictícia de cacau e aveia. A identidade usa contraste forte e elementos táteis conceituais, e o QR abre uma experiência personalizada."
+“Essa é a NEXO Campus: uma experiência feita para alunos do ensino técnico. Ela reúne agenda, comunicados, vagas, eventos e um mapa em um só lugar. Mas isso, sozinho, ainda seria só um portal. O nosso diferencial é o NEXO Radar.”
 
-## 0:55–1:55 — Demonstração real
+## 0:50–1:50 — A demonstração que impressiona
 
-1. Mostre a embalagem impressa ou o mockup e escaneie o QR.
-2. Mostre o rótulo digital no celular.
-3. Ative a leitura ampliada e depois o alto contraste.
-4. Selecione "Amendoim". Mostre o alerta destacado sobre o ingrediente presente na composição ilustrativa.
-5. Se o dispositivo permitir síntese de fala, clique em "Ouvir rótulo" e demonstre a narração.
+1. Abra a landing e clique em **Experimentar a NEXO**.
+2. Mostre o painel: “Gabriel tem uma atividade às 11h e estamos simulando 10h20.”
+3. Abra o Radar: “A NEXO calculou 40 minutos livres e identificou uma oficina que cabe antes da próxima aula.”
+4. Mude o horário para 10h50: “Agora a prioridade mudou. Em vez de sugerir uma oficina, a plataforma recomenda chegar à aula em tempo.”
+5. Clique no mapa e mostre o destino conectado.
+6. No assistente, pergunte “Quais vagas de estágio combinam comigo?” e mostre a resposta ligada ao curso.
 
-"Percebam: não precisamos que a pessoa leia do jeito que decidimos. Ela escolhe como receber a informação. E a seleção não sai do dispositivo."
+Fala durante a demonstração:
 
-## 1:55–2:30 — Por que pode ser aplicado
+“A NEXO conecta tempo, curso, interesses e oportunidades para responder à pergunta mais útil: o que vale a pena fazer agora?”
 
-"A solução funciona diretamente no navegador, sem aplicativo obrigatório, cadastro ou equipamentos caros. O fabricante poderia vincular as informações verificadas de cada produto ao seu QR. O consumidor acessaria gratuitamente. Futuramente, marcas poderiam contratar a plataforma para publicar seus rótulos adaptáveis com revisão de conteúdo e testes reais de acessibilidade."
+## 1:50–2:25 — Valor para alunos e unidade
 
-## 2:30–3:00 — Fechamento
+“O estudante ganha clareza, personalização e mais chances de participar. A instituição ganha um canal unificado para divulgar informações relevantes. O acesso é pelo navegador, sem instalar aplicativo. Em uma implantação real, os dados viriam de fontes verificadas e autorizadas pelo SENAI.”
 
-"Hoje não estamos afirmando ter resolvido toda a acessibilidade ou a segurança alimentar: apresentamos um protótipo funcional, com dados explicitamente fictícios, que mostra o caminho. A inovação não está em colocar mais informação na embalagem. Está em fazer a informação chegar a mais pessoas. NEXO: uma embalagem para todos."
+## 2:25–3:00 — Conclusão
 
-## Perguntas prováveis da banca
+“Hoje trouxemos uma prova de conceito, com dados fictícios e um assistente baseado em regras para evitar inventar informações. O próximo passo seria conectar os sistemas oficiais e testar com estudantes. A gente não quer criar mais um lugar para procurar informações. Quer transformar informação em oportunidade. NEXO Campus: seu SENAI, no seu ritmo.”
 
-- **É IA?** Não. A versão do hackathon usa regras explícitas e síntese de voz do navegador, uma escolha intencional para reduzir riscos de alucinação em dados de ingredientes.
-- **O QR resolve acessibilidade sozinho?** Não. É uma das portas de entrada. A solução final exigirá testes com usuários reais, alternativa sem smartphone e recursos táteis verdadeiros.
-- **E se o produto tiver ingredientes incorretos?** O dado precisa ser fornecido e validado pelo fabricante. A versão de demonstração é claramente fictícia.
-- **Como monetiza?** B2B por catálogo de produtos/marca. Acesso gratuito para consumidores. Modelo ainda é hipótese, não negócio validado.
-- **Diferencial?** Une identidade física, acesso no navegador, modos visuais, voz e personalização por ingrediente em uma única experiência de baixo atrito.
+## Possíveis perguntas
 
-## Entrega do hackathon
-
-- Marca: NEXO; paleta: violeta `#3928B7`, lima `#DBFF63`, papel `#FAF9F4`.
-- Protótipo físico: PDF A4 com planificação e QR escaneável.
-- Site: responsivo, sem login, com três modos de leitura, alertas e leitura por voz dependente de suporte do navegador.
-- Pitch: até três minutos.
-- Honestidade técnica: a versão do hackathon não certifica acessibilidade e não é ferramenta de segurança alimentar.
+- **Isso é inteligência artificial?** O assistente desta versão usa regras de decisão transparentes. O Radar é um algoritmo contextual que cruza quatro sinais. IA generativa pode ser adicionada depois, usando fontes institucionais verificadas.
+- **Os dados são reais?** Não. São exemplos fictícios para demonstrar a experiência, claramente identificados em todas as telas.
+- **O mapa é real?** Não. É um esquema interativo ilustrativo; uma implantação requer a planta oficial autorizada.
+- **O que torna isso diferente de um mural?** A recomendação contextual que muda conforme o horário e os interesses do estudante, com ações conectadas.
+- **E a privacidade?** O protótipo não envia dados para servidores. Uma versão institucional exigiria autenticação, política de retenção e conformidade com a LGPD.
+- **Como escalar?** Começar com uma unidade e fontes oficiais; depois padronizar dados e disponibilizar para outros campi.
