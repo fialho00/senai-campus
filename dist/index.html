@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#261a71">
+  <meta name="description" content="NEXO: uma embalagem inclusiva que transforma informações do produto em experiências adaptadas a cada pessoa. Protótipo de Design + TI.">
+  <title>NEXO — A embalagem que entende você</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="nav">
+    <a class="brand" href="#inicio" aria-label="NEXO, início"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>nexo<span class="brand-period">.</span></a>
+    <nav aria-label="Menu principal"><a href="#ideia">A ideia</a><a href="#experiencia">Experimente</a><a href="#embalagem">A embalagem</a></nav>
+    <a class="btn btn-small btn-dark" href="#experiencia">Testar agora <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Design que inclui. Tecnologia que aproxima.</div>
+        <h1>Informação para <em>todo mundo.</em> De verdade.</h1>
+        <p>Uma embalagem que não pede que você se adapte a ela. Ela se adapta a você.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#experiencia">Viver a experiência <span aria-hidden="true">↗</span></a><a class="subtle-link" href="#ideia">Conheça o conceito <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-foot"><span class="tiny-icon">✳</span><span>Uma ideia. Muitos jeitos de compreender.</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Conceito da embalagem NEXO de cacau e aveia">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <img class="product-photo" src="assets/nexo-product.png" alt="Mockup conceitual de uma caixa NEXO violeta, com elementos táteis e gráficos contrastantes" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="product-placeholder" aria-hidden="true"><span class="box-dots">••<br>••</span><strong>NEXO</strong><small>CACAU + AVEIA<br>45 g</small></div>
+        <span class="float-note note-left">↗ Informação acessível</span>
+        <span class="float-note note-right">01 / Protótipo</span>
+      </div>
+    </section>
+    <div class="ticker" aria-label="Características da solução"><span>OUÇA <b>✳</b></span><span>LEIA <b>✳</b></span><span>ENTENDA <b>✳</b></span><span>ESCOLHA <b>✳</b></span><span>PARTICIPE <b>✳</b></span></div>
+    <section class="intro section-wrap" id="ideia">
+      <div class="section-kicker"><span>01</span> O DESAFIO</div>
+      <div class="intro-grid"><h2>O problema não está na informação.<br><span>Está em como ela chega.</span></h2><div><p>Rótulos com letras pequenas, excesso de texto e informações difíceis de localizar podem excluir justamente quem mais precisa delas.</p><p>A NEXO propõe um <strong>rótulo digital adaptável</strong>, acessado pelo QR da embalagem, com três modos de leitura e destaque para ingredientes relevantes.</p><a class="arrow-link" href="#experiencia">Veja funcionar <span aria-hidden="true">↗</span></a></div></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon">Aa</div><span class="feature-num">01 / VISÃO</span><h3>Leia do seu jeito.</h3><p>Texto ampliado, alto contraste e apresentação mais simples.</p></article>
+        <article class="feature-card"><div class="feature-icon">◖))</div><span class="feature-num">02 / VOZ</span><h3>Deixe o rótulo falar.</h3><p>O navegador lê ingredientes e alertas em voz alta.</p></article>
+        <article class="feature-card"><div class="feature-icon">!</div><span class="feature-num">03 / CUIDADO</span><h3>Perceba o que importa.</h3><p>Selecione ingredientes de atenção e veja avisos em destaque.</p></article>
+      </div>
+    </section>
+    <section class="demo-section" id="experiencia">
+      <div class="section-wrap demo-shell">
+        <div class="demo-heading"><div><div class="section-kicker"><span>02</span> PROTÓTIPO INTERATIVO</div><h2>Agora, a embalagem<br><em>é sua.</em></h2><p>O produto é ilustrativo. As escolhas abaixo funcionam de verdade no seu navegador, sem login e sem enviar dados.</p></div><div class="live-label"><span></span> DEMONSTRAÇÃO AO VIVO</div></div>
+        <div class="demo-grid">
+          <div class="config-panel">
+            <div class="panel-top"><span>PERSONALIZE SUA LEITURA</span><span>01 / 02</span></div>
+            <fieldset class="controls-field"><legend>Como você prefere ler?</legend><div class="mode-group" role="group" aria-label="Modo de leitura">
+              <button type="button" class="mode-button is-active" data-mode="padrao" aria-pressed="true"><span class="mode-icon">Aa</span> Padrão</button>
+              <button type="button" class="mode-button" data-mode="ampliado" aria-pressed="false"><span class="mode-icon">A+</span> Ampliado</button>
+              <button type="button" class="mode-button" data-mode="contraste" aria-pressed="false"><span class="mode-icon">◐</span> Contraste</button>
+            </div></fieldset>
+            <fieldset class="controls-field"><legend>Algum ingrediente exige atenção?</legend><p class="field-note">Marque os ingredientes que você deseja verificar.</p><div class="allergen-grid">
+              <label class="check-chip"><input type="checkbox" value="amendoim"><span>Amendoim</span></label>
+              <label class="check-chip"><input type="checkbox" value="leite"><span>Leite</span></label>
+              <label class="check-chip"><input type="checkbox" value="soja"><span>Soja</span></label>
+              <label class="check-chip"><input type="checkbox" value="gluten"><span>Glúten</span></label>
+            </div></fieldset>
+            <div class="private-note"><span aria-hidden="true">♧</span> Sua seleção fica apenas nesta página.</div>
+            <button class="reset-link" id="resetBtn" type="button">↺ Limpar preferências</button>
+          </div>
+          <div class="label-panel" id="reader" aria-label="Rótulo acessível demonstrativo">
+            <div class="reader-top"><span>RÓTULO DIGITAL</span><span class="reader-dots" aria-hidden="true">● ● ●</span></div>
+            <div class="reader-content">
+              <div class="label-brand"><span class="label-logo">nexo<span>.</span></span><span class="demo-badge">EXEMPLO FICTÍCIO</span></div>
+              <h3>Barra de<br>cacau + aveia</h3><div class="weight">45 g • Alimento ilustrativo</div>
+              <div class="ingredient-block"><h4>Ingredientes</h4><p>Aveia, tâmaras, cacau e pasta de amendoim.</p></div>
+              <div class="ingredient-block"><h4>Informações sobre alergênicos</h4><p><strong>Contém amendoim.</strong> Pode conter leite e soja. Verifique as informações reais de qualquer produto antes de consumir.</p></div>
+              <div class="alert-container" id="alerts" aria-live="polite"><div class="safe-hint">Selecione um ingrediente à esquerda para verificar os avisos.</div></div>
+              <div class="voice-actions"><button id="speakBtn" type="button" class="btn btn-audio"><span aria-hidden="true">▶</span> Ouvir rótulo</button><button id="stopBtn" type="button" class="btn btn-stop" disabled>Parar áudio</button></div>
+              <p class="voice-status" id="voiceStatus" role="status" aria-live="polite"></p>
+            </div>
+            <div class="reader-bottom"><span>UMA EMBALAGEM. MUITAS FORMAS DE ACESSAR.</span><span aria-hidden="true">✳</span></div>
+          </div>
+        </div>
+        <p class="demo-disclaimer">Este protótipo não é um sistema de segurança alimentar, diagnóstico ou certificação de acessibilidade. Os dados nutricionais e a embalagem são fictícios. Em produtos reais, a informação oficial do fabricante é indispensável.</p>
+      </div>
+    </section>
+    <section class="package-section section-wrap" id="embalagem">
+      <div class="section-kicker"><span>03</span> DO DESIGN AO MUNDO FÍSICO</div>
+      <div class="package-grid"><div><h2>Físico no toque.<br><em>Digital no cuidado.</em></h2><p>A embalagem foi pensada como uma ponte: visual forte, contraste, referência tátil no conceito e um QR que leva ao rótulo adaptável.</p><ul class="package-list"><li><span>01</span> Identidade visual vibrante e memorável</li><li><span>02</span> Modelo de planificação para montar a caixa</li><li><span>03</span> QR funcional apontando para a experiência</li></ul><div class="package-actions"><a class="btn btn-dark" href="assets/nexo-planificacao.pdf" download>Baixar embalagem para imprimir <span aria-hidden="true">↘</span></a></div></div>
+      <div class="scan-card"><span class="scan-kicker">A CONEXÃO ACONTECE AQUI</span><div class="qr-frame"><img src="assets/nexo-qr.svg" width="220" height="220" alt="QR Code que abre a experiência NEXO neste site"></div><strong>Escaneie. Descubra.<br>Faça do seu jeito.</strong><span class="scan-foot">Acesse o rótulo digital pelo celular</span></div></div>
+    </section>
+    <section class="impact"><div class="section-wrap impact-inner"><span class="impact-spark">✳</span><p>Não é sobre fazer mais uma embalagem.<br>É sobre fazer uma embalagem que <em>não deixa ninguém de fora.</em></p><a href="#experiencia" class="btn btn-primary">Experimentar a NEXO <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="footer"><a class="brand" href="#inicio">nexo<span class="brand-period">.</span></a><p>Protótipo conceitual • Hackathon Design + TI • 2026</p><a href="#inicio">Voltar ao topo ↑</a></footer>
+</body>
+</html>
